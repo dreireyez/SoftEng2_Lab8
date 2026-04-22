@@ -13,11 +13,11 @@ New Era University requires a system to represent its various organizational uni
 ## Class Description
 The system is built using the **Composite Design Pattern**, allowing individual objects and compositions of objects to be treated uniformly across the university hierarchy. 
 
-* **`EducationalUnit` (Interface):** The base Component interface. It defines the standard operations (`calculateStudents()`, `displayDetails()`, `calculateBudget()`) that all concrete entities within the university must implement.
+* **`EducationalUnit` (Interface):** The base Component interface. It defines the standard operations (`getStudentCount()`, `displayDetails()`, `calculateBudget()`) that all concrete entities within the university must implement.
 * **`Teacher` (Leaf):** Represents an individual instructor. Its budget calculation returns its salary, and its student count inherently returns zero.
 * **`Student` (Leaf):** Represents an enrolled student. Its budget calculation returns the negative value of its tuition fee, and its student count returns one.
-* **`Department` (Composite):** A subdivision container that holds a collection of `EducationalUnit` objects (such as teachers and students). Its operations iterate through its enrolled children to dynamically sum the student counts and budgets.
-* **`College` (Composite):** A high-level organizational container that holds a collection of `EducationalUnit` objects (which can be departments, individual students/teachers, or even sub-colleges). It delegates calculations and data displaying directly to its child nodes.
+* **`Department` (Composite):** A subdivision container that holds a collection of `InstitutionalUnit` objects (such as teachers and students). Its operations iterate through its enrolled children to dynamically sum the student counts and budgets.
+* **`College` (Composite):** A high-level organizational container that holds a collection of `InstitutionalUnit` objects (which can be departments, individual students/teachers, or even sub-colleges). It delegates calculations and data displaying directly to its child nodes.
 * **`UniversityClient` (Client):** The execution entry point that demonstrates the pattern by creating instances of leaves and composites, assembling them into a tree structure, and executing the required operations on the root node.
 
 ## Class Diagram
