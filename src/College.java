@@ -1,4 +1,3 @@
-// College.java
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +19,12 @@ public class College implements InstitutionalUnit {
     }
 
     @Override
-    public int countMembers() {
-        return units.stream().mapToInt(InstitutionalUnit::countMembers).sum();
+    public int getStudentCount() {
+        int count = 0;
+        for (InstitutionalUnit unit: units) {
+            count += unit.getStudentCount();
+        }
+        return count;
     }
 
     @Override
@@ -34,8 +37,11 @@ public class College implements InstitutionalUnit {
 
     @Override
     public double calculateBudget() {
-        // Automatically sums budgets of departments, teachers, and (-tuition fees) [cite: 17]
-        return units.stream().mapToDouble(InstitutionalUnit::calculateBudget).sum();
+        double total = 0.0;
+        for (InstitutionalUnit unit: units) {
+            total += unit.calculateBudget();
+        }
+        return total;
     }
 
     public String getName() {

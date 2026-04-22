@@ -1,4 +1,3 @@
-// Student.java
 public class Student implements InstitutionalUnit {
     private String name;
     private String studentId;
@@ -11,13 +10,13 @@ public class Student implements InstitutionalUnit {
     }
 
     @Override
-    public int countMembers() {
+    public int getStudentCount() {
         return 1; // Each student counts as 1
     }
 
     @Override
     public void displayDetails() {
-        System.out.println("  Student: " + name + " | ID: " + studentId + " | Tuition: $" + tuitionFee);
+        System.out.printf("  Student: %s | ID: %s | Tuition: ₱%,.2f%n", name, studentId, tuitionFee);
     }
 
     @Override

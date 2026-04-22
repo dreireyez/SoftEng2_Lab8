@@ -1,5 +1,5 @@
 public interface InstitutionalUnit {
-    int countMembers();
+    int getStudentCount();
     void displayDetails();
     double calculateBudget();
 }

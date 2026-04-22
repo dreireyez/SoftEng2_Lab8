@@ -1,4 +1,3 @@
-// Department.java
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +19,17 @@ public class Department implements InstitutionalUnit {
     }
 
     @Override
-    public int countMembers() {
-        return units.stream().mapToInt(InstitutionalUnit::countMembers).sum();
+    public int getStudentCount() {
+        int count = 0;
+        for (InstitutionalUnit unit: units) {
+            count += unit.getStudentCount();
+        }
+        return count;
     }
 
     @Override
     public void displayDetails() {
-        System.out.println("\nDepartment: " + name);
+        System.out.println("\n[Department] " + name);
         for (InstitutionalUnit unit : units) {
             unit.displayDetails();
         }
@@ -34,7 +37,10 @@ public class Department implements InstitutionalUnit {
 
     @Override
     public double calculateBudget() {
-        // Automatically sums teacher salaries and negative student tuition [cite: 18]
-        return units.stream().mapToDouble(InstitutionalUnit::calculateBudget).sum();
+        double total = 0.0;
+        for (InstitutionalUnit unit: units) {
+            total += unit.calculateBudget();
+        }
+        return total;
     }
 }

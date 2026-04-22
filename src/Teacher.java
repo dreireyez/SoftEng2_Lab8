@@ -1,4 +1,3 @@
-// Teacher.java
 public class Teacher implements InstitutionalUnit {
     private String name;
     private String subject;
@@ -11,13 +10,13 @@ public class Teacher implements InstitutionalUnit {
     }
 
     @Override
-    public int countMembers() {
+    public int getStudentCount() {
         return 0; // Teachers don't count towards the student total
     }
 
     @Override
     public void displayDetails() {
-        System.out.println("  Teacher: " + name + " | Subject: " + subject + " | Salary: $" + salary);
+        System.out.printf("  Teacher: %s | Subject: %s | Salary: ₱%,.2f%n", name, subject, salary);
     }
 
     @Override
